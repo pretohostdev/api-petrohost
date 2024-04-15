@@ -1,41 +1,38 @@
-const Sequelize = require('sequelize');
-const sequelize = require('../db/mysql'); 
+const mongoose = require('mongoose');
 
-const SchemaAgenda = sequelize.define('schema', {
+const schemaAgenda = new mongoose.Schema({
     nome: {
-        type: Sequelize.STRING,
-        
-        allowNull: false,
+        type: String,
+        required: true
     },
     email: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true, 
+        type: String,
+        required: true
     },
     telefone: {
-        type: Sequelize.STRING,
-        allowNull: false,
+        type: String,
+        required: true
     },
     servicos: {
-        type: Sequelize.STRING,
-        allowNull: false,
+        type: [String],
+        required: true
     },
     funcionario: {
-        type: Sequelize.STRING,
-        allowNull: false,
+        type: String,
+        required: true
     },
     data: {
-        type: Sequelize.DATEONLY, 
-        allowNull: false,
+        type: Date,
+        required: true
     },
     hora: {
-        type: Sequelize.STRING, 
-        allowNull: false,
+        type: String, 
+        required: true
     },
     endereco: {
-        type: Sequelize.STRING,
-        allowNull: false,
+        type: String,
+        required: true
     },
-});
+}, { timestamps: true }); 
 
-module.exports = SchemaAgenda;
+module.exports = schemaAgenda

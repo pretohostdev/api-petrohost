@@ -1,10 +1,11 @@
 const express=require("express")
-const send = require("../controllers/sendEmail")
+const {listarTodasAgendas,criarAgenda} = require("../controllers/agenda.controller")
 
 const routes=express.Router()
 
 
-routes.post("/send",send)
+routes.post("/agendar",criarAgenda)
+routes.get("/agendas",listarTodasAgendas)
 
 
 module.exports=routes
